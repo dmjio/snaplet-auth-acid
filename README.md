@@ -2,7 +2,6 @@
 
 An AcidState backend for Snap's Auth Snaplet
 
--- Attribution
 Zopa is the author of this package and is attributed as such. 
 
 ```text
