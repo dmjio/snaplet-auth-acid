@@ -1,12 +1,3 @@
-# snaplet-auth-acid
-
-An AcidState backend for Snap's Auth Snaplet
-
-```text
-cabal update && cabal install snaplet-auth-acid
-```
-
-```haskell
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
 
@@ -94,5 +85,3 @@ main :: IO ()
 main = do
   (_, site, _) <- runSnaplet Nothing app
   quickHttpServe site
-
-```

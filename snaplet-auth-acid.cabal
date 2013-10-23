@@ -3,8 +3,9 @@ Version:             0.0.1
 Synopsis:            Provides an Acid-State backend for the Auth Snaplet
 Description:         Project Description Here
 License:             BSD3
+license-file:        LICENSE
 Author:              Ben Doyle
-Maintainer:          benjamin.peter.doyle@gmail.com
+Maintainer:          djohnson.m@gmail.com
 Stability:           Experimental
 Category:            Web, Snap
 Build-type:          Simple
@@ -33,3 +34,6 @@ Library
     time >= 1.1 && < 1.5,
     unordered-containers >= 0.1.4 && < 0.3,
     vector >= 0.7.1 && < 0.11
+source-repository head
+  type:     git
+  location: https://github.com/dmjio/snaplet-auth-acid.git
