@@ -8,10 +8,13 @@
 
 module Snap.Snaplet.Auth.Backends.Acid where
 
+import           Control.Applicative
 import           Control.Error
 import           Control.Exception hiding (Handler)
+import           Control.Monad
 import           Control.Monad.CatchIO (throw)
 import           Control.Monad.Reader (ask)
+import           Control.Monad.State
 import           Data.Acid
 import           Data.Aeson (Value, encode, decode)
 import           Data.Attoparsec.Number (Number)
@@ -21,6 +24,7 @@ import           Data.Hashable (Hashable)
 import           Data.Maybe
 import           Data.SafeCopy
 import qualified Data.Serialize as S (get, put)
+import           Data.Scientific (Scientific)
 import           Data.Text (Text, pack)
 import           Data.Time
 import           Data.Typeable (Typeable)
@@ -58,17 +62,12 @@ instance (SafeCopy a, SafeCopy b, Eq a, Hashable a) =>
 
 
 ------------------------------------------------------------------------------
-instance (SafeCopy a) => SafeCopy (V.Vector a) where
-      getCopy = contain $ fmap V.fromList safeGet
-      putCopy = contain . safePut . V.toList
-
-
-------------------------------------------------------------------------------
 deriving instance Typeable AuthUser
 
 
 ------------------------------------------------------------------------------
 $(deriveSafeCopy 0 'base ''Number)
+$(deriveSafeCopy 0 'base ''Scientific)
 $(deriveSafeCopy 0 'base ''Value)
 $(deriveSafeCopy 0 'base ''Password)
 $(deriveSafeCopy 0 'base ''Role)
