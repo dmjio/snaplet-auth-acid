@@ -1,6 +1,10 @@
 dist
 cabal-dev
+.cabal-sandbox
+cabal.sandbox.config
 *.o
+*.nix
+result
 *.hi
 *.chi
 *.chs.h
